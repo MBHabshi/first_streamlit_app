@@ -14,6 +14,7 @@ streamlit.text('🥣 1-Porridge')
 streamlit.text('🍞2-French toast')
 streamlit.text('3-Coffee')
 
-streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
+streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
+
 
 streamlit.dataframe(my_fruit_list)

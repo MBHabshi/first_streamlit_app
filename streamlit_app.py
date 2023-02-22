@@ -41,6 +41,9 @@ my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchall()
 #streamlit.text("Hello from Snowflake:")
+fruit_choice_sf = streamlit.text_input('What fruit would you like?','Apple')
+streamlit.write('The user entered ', fruit_choice_sf)
+
 streamlit.header("The Fruit load list contains:")
 streamlit.dataframe(my_data_row)
 

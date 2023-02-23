@@ -54,6 +54,7 @@ streamlit.stop()
 
 
 
+
 streamlit.header("The Fruit load list contains:")
 #Snowflake related function
 def get_fruit_load_list():

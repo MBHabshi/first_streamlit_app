@@ -28,20 +28,26 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header('Fruityvice Fruit Advice...')
 
 def get_fruityvice_data(this_fruit_choice):
+    streamlit.write("in func")
     fruity_endpoint = "https://fruityvice.com/api/fruit/"
     fruityEndpointWithSearch = fruity_endpoint+this_fruit_choice
     fruityvice_response = requests.get(fruityEndpointWithSearch)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalised
-
+streamlit.write("before try")
 try:
+  streamlit.write("in try")
   fruit_choice = streamlit.text_input('What fruit would you like information about?')
   if not fruit_choice:
+    streamlit.write("if check")
     streamlit.error("Please select a fruit to get information.")
-  else:    
+    
+  else:
+    streamlit.write("else")
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
 except URLError as e:
+    streamlit.write("exception")
     streamlit.error()
 
 streamlit.stop()

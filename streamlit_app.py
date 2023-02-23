@@ -37,7 +37,7 @@ def get_fruityvice_data(this_fruit_choice):
 streamlit.write("before try")
 try:
   streamlit.write("in try")
-  fruit_choice = streamlit.text_input('What fruit would you like information about?')
+  fruit_choice = streamlit.text_input('What fruit would you like information about?','Apple')
   if not fruit_choice:
     streamlit.write("if check")
     streamlit.error("Please select a fruit to get information.")

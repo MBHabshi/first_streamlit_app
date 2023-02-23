@@ -2,7 +2,7 @@
 import streamlit
 import pandas
 import requests
-import snowflake.connector
+
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
 
@@ -35,6 +35,9 @@ fruityvice_response = requests.get(fruityEndpointWithSearch)
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
+streamlit.stop()
+
+import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 #my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")

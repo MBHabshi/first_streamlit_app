@@ -31,8 +31,10 @@ def get_fruityvice_data(this_fruit_choice):
     streamlit.write("in func")
     fruity_endpoint = "https://fruityvice.com/api/fruit/"
     fruityEndpointWithSearch = fruity_endpoint+this_fruit_choice
+    streamlit.write(fruityEndpointWithSearch)
     fruityvice_response = requests.get(fruityEndpointWithSearch)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+    streamlit.write('Before Return')
     return fruityvice_normalised
 streamlit.write("before try")
 try:
